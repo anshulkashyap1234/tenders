@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+table, td, th {  
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+
+  text-align: center;
+}
+
+th, td {
+  padding: 15px;
+  text-align: center
+}
+
+
+</style>
+</head>
+<body>
+
+    <div class="container">
+       <p style="font-size: 12px;  font-family: Arial, Helvetica, sans-serif;">Dear {{username|capfirst}},</p>
+       <p style="font-size: 12px;  font-family: Arial, Helvetica, sans-serif;">There are new Tenders found.Please find below a summary for your kind perusal:</p>         
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th style="font-size: 12px;  font-family: Arial, Helvetica, sans-serif; background-color: #00358A; color:#fff;  text-align: center; width: 80px;" >S.No.</th>             
+                <th style="font-size: 12px;  font-family: Arial, Helvetica, sans-serif; background-color: #00358A;  color:#fff;  text-align: center; width:125px">E - Published Date</th>
+                <th style="font-size: 12px;  font-family: Arial, Helvetica, sans-serif; background-color: #00358A;  color:#fff;  text-align: center; width: 250px;">Closing Date</th>
+                <th style="font-size: 12px;  font-family: Arial, Helvetica, sans-serif; background-color: #00358A;  color:#fff;  text-align: center; width: 250px">Opening Date</th>
+                <th style="font-size: 12px;  font-family: Arial, Helvetica, sans-serif; background-color: #00358A;  color:#fff;  text-align: center; width: 75px">Title Ref No</th>   
+                <th style="font-size: 12px;  font-family: Arial, Helvetica, sans-serif; background-color: #00358A;  color:#fff;  text-align: center; width: 75px">Organisation Chain</th>   
+              </tr>
+            </thead>
+            <tbody>
+              {% for new in old_obj  %}
+              <tr style="font-size: 12px;  font-family: Arial, Helvetica, sans-serif;">
+                <td>
+                  <span>
+                    <span class="fi fi-af"></span>
+                  </span>
+                  <span>{{forloop.counter}}</span>
+                </td>              
+                <td>{{new.e_published_date  }}</td>
+                <td>{{new.closing_date}}</td>
+                            
+                <td>{{new.opening_date}}</td>
+                <td>{{new.title_ref_no}}</td>
+                <td>{{new.organisation_chain|capfirst}}</td>
+           
+                
+              </tr>
+              {% endfor %}
+            
+            </tbody>
+          </table>
+          <p style="font-size: 12px;  font-family: Arial, Helvetica, sans-serif;">Hope the above information provides you with important insights for the day. </p>
+           <P style="font-size: 12px;  font-family: Arial, Helvetica, sans-serif;"> Kind regards,<br>
+            Update System Administrator</P>
+            </p>
+        </div>
+         </div>
+    
+</body>
+</html>
+
+
